@@ -1,18 +1,22 @@
 const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
 
-geocode("Gwalior", (err, data) => {
-  if (err) {
-    console.log("Error -->", err);
-  } else {
-    console.log("Data -->", data);
+const address = process.argv[2];
 
-    forecast(data.latitude, data.longitude, (err, data) => {
+if (!address) {
+  console.log("Please provide an address!");
+} else {
+  geocode(address, (err, { latitude, longitude, location }) => {
+    if (err) {
+      return console.log("Error -->", err);
+    }
+
+    forecast(latitude, longitude, (err, forecastData) => {
       if (err) {
-        console.log("Error -->", err);
-      } else {
-        console.log("Data -->", data);
+        return console.log("Error -->", err);
       }
+      console.log(location);
+      console.log(forecastData);
     });
-  }
-});
+  });
+}

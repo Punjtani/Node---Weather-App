@@ -40,3 +40,41 @@ header a {
 .portrait {
   width: 250px;
 }
+
+.content {
+  font-weight: bold;
+}
+
+button {
+  outline: none;
+  background-color: #888888; 
+  border: 2px solid #888888;
+  /* border-radius: 8px; */
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+button:hover {
+  color: rgb(224, 222, 222);
+  text-decoration: none;
+}
+
+input {
+  outline: none;
+  font-size: 16px;
+  padding: 5px 10px;
+  border: 2px solid rgb(155, 155, 155);
+  /* border-radius: 5px; */
+}
+
+input:focus {
+  border: 2px solid #555555;
+  /* border-radius: 5px; */
+  background-color: rgb(245, 245, 245);
+}

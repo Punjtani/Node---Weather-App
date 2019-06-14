@@ -49,14 +49,14 @@ app.get("/weather", (req, res) => {
     });
   };
 
-  location(req.query.address, (err, { latitude, longitude, location }) => {
-    if (err) {
-      return res.send({ err });
+  location(req.query.address, (error, { latitude, longitude, location } = {}) => {
+    if (error) {
+      return res.send({ error });
     }
 
-    forecast(latitude, longitude, (err, forecastData) => {
-      if (err) {
-        return res.send({ err });;
+    forecast(latitude, longitude, (error, forecastData) => {
+      if (error) {
+        return res.send({ error });;
       }
 
       res.send({
